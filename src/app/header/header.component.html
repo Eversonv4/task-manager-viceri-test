@@ -1,0 +1,13 @@
+<header class="container flex-just-align-c  animate-to-fade-up">
+  <figure>
+    <img src="/assets/images/viceri.png" alt="company logo" title="Viceri" class="transition"/>
+  </figure>
+
+  <div>
+    <span class="datetime-widget flex-just-align-c transition">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <span class="loading-animate-1" *ngIf="!dateTime"></span>
+      {{dateTime}}
+    </span>
+  </div>
+</header>

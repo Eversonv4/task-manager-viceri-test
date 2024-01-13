@@ -1,0 +1,44 @@
+header {
+  height: 80px;
+  margin-top: 15px;
+  transition: 0.6s linear;
+}
+
+figure {
+  max-width: fit-content;
+  margin-bottom: 0;
+
+  & img {
+    max-height: 60px;
+    border-radius: 12px;
+  }
+}
+
+.datetime-widget {
+  background-color: #FFFFFF;
+  padding: 15px;
+  border-radius: 12px;
+
+  font-weight: 500;
+
+  & i {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    min-width: 290px;
+  }
+
+  figure {
+    & img {
+      max-height: 50px;
+    }
+  }
+
+  .datetime-widget {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}

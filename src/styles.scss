@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #ededed;
+}
+
+.flex-just-align-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transition {
+  transition: 0.6s linear;
+}
+
+.animate-to-fade-up {
+  animation: fade-to-up 0.6s ease-in-out;
+}
+
+.animate-fadeIn {
+  animation: fade-in 0.8s ease-in-out;
+}
+
+.animate-growX {
+  animation: grow-x 0.6s ease-in-out;
+}
+
+.loading-animate-1 {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #fc3e39;
+  animation: rotate 0.6s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-to-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  } to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
