@@ -36,12 +36,14 @@ export class ListContainerComponent {
       blocked: "Bloqueada"
     }
 
-    const allTasks = Object.keys(this.taskService.tasks).map((property: string) => ({
-      // @ts-ignore
-      description: this.taskService.tasks[property][0],
+    const dbTasks = this.taskService.tasks;
+
+    // @ts-ignore
+    const allTasks = Object.keys(dbTasks).flatMap((property: string) => dbTasks[property].map(description =>({
+      description,
       // @ts-ignore
       status: mapping[property]
-    }))
+    })))
 
     const filteredTasks = allTasks.filter((task) => task.description !== undefined);
 
@@ -60,7 +62,7 @@ export class ListContainerComponent {
       return 
     }
 
-    const tasks = this.tasks.slice();
+    const tasks = this.allTasks.slice();
     const tasksFilteredByText = tasks.filter(task => task.description.includes(titleSearch))
 
     if(selectedStatus === "") {
@@ -71,9 +73,5 @@ export class ListContainerComponent {
     const tasksfilteredByStatus = tasks.filter(task => task.status === selectedStatus)
 
     this.tasks = tasksfilteredByStatus;
-  }
-
-  mostrar() {
-    console.log("OI");
   }
 }

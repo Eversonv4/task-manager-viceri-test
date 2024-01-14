@@ -9,7 +9,7 @@
 
     <div class="filter-container">
       <label for="filter-status" class="form-label ms-2 mt-2 me-2">Filtrar por Status</label>
-      <select name="filterStatus" id="filter-status" #selectInputStatus (change)="mostrar()">
+      <select name="filterStatus" id="filter-status" #selectInputStatus>
         <option *ngFor="let option of statusOptions" [value]="option?.status">{{option?.statusName}}</option>
       </select>
       <button (click)="filterTasks(searchInput.value, selectInputStatus.value)">
