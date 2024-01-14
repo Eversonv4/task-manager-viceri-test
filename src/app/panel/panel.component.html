@@ -96,7 +96,12 @@
       <h3>Atualizar tarefa</h3>
 
         <textarea type="text" #updateTaskInput></textarea>
-        <button (click)="updateTask(selectedTask.status, selectedTask.index, updateTaskInput, modal)">Atualizar</button>
+
+        <label class="mt-2" for="select-status">Status: </label>
+        <select #selectInputStatus id="select-status">
+          <option *ngFor="let status of statuses" [selected]="status.status === selectedTask.status" [value]="status.status">{{status.title}}</option>
+        </select>
+        <button (click)="updateTask(updateTaskInput, modal, selectInputStatus.value)">Atualizar</button>
     </div>
   </div>
 </div>

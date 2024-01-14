@@ -5,7 +5,8 @@ import { ListContainerComponent } from './list-container/list-container.componen
 
 const routes: Routes = [
   {path: "", component: PanelComponent},
-  {path: "list", component: ListContainerComponent}
+  {path: "list", component: ListContainerComponent},
+  {path: "**", redirectTo: "/"}
 ];
 
 @NgModule({

@@ -9,6 +9,11 @@ type TSelectedTask = {
   index: number
 }
 
+type TStatuses = {
+  status: TStatus,
+  title: string
+}[]
+
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -21,8 +26,18 @@ export class PanelComponent implements OnInit {
     done: [],
     blocked: []
   }
+  statuses :TStatuses = [
+    {status: "backlog", title: "À Fazer"}, 
+    {status: "doing", title: "Em andamento"}, 
+    {status: "done", title: "Concluída"}, 
+    {status: "blocked", title: "Bloqueada"}
+  ];
 
-  selectedTask !: TSelectedTask;
+  selectedTask : TSelectedTask = {
+    index: 0,
+    status: "backlog",
+    title: ""
+  };
 
   constructor(private taskService: TaskService) {
 
@@ -67,10 +82,10 @@ export class PanelComponent implements OnInit {
     this.taskService.updateDataBase();
   }
 
-  openModal(modal: HTMLDivElement, updateInput: HTMLTextAreaElement, status: TStatus, index: number) {
+  openModal(modal: HTMLDivElement, updateTextarea: HTMLTextAreaElement, status: TStatus, index: number) {
     modal.style.left = "0";
     const title = this.taskService.tasks[status][index];
-    updateInput.value = title;
+    updateTextarea.value = title;
     this.selectedTask = {
       index,
       status,
@@ -78,15 +93,29 @@ export class PanelComponent implements OnInit {
     }
   }
 
-  updateTask(status: TStatus, index: number, updateTaskInput: HTMLTextAreaElement, modal: HTMLDivElement) {
-    if(updateTaskInput.value === "") {
+  updateTask(updateTaskTextArea: HTMLTextAreaElement, modal: HTMLDivElement, newStatus: string) {
+    if(updateTaskTextArea.value === "") {
       return
     }
 
-    this.taskService.tasks[status][index] = updateTaskInput.value;
+    if(newStatus !== this.selectedTask.status) {
+      // @ts-ignore
+      this.changeTaskStatus(this.selectedTask.status, this.selectedTask.index)
+      // @ts-ignore
+      this.taskService.tasks[newStatus].push(updateTaskTextArea.value);
+    } else {
+      this.taskService.tasks[this.selectedTask.status][this.selectedTask.index] = updateTaskTextArea.value;
+    }
 
     modal.style.left = "100%";
-    updateTaskInput.value = "";
+    updateTaskTextArea.value = "";
+
+    this.taskService.updateDataBase();
+  }
+
+  changeTaskStatus(status: TStatus, index: number) {
+    const filteredTasks = this.taskService.tasks[status].filter((task, i) => index !== i);
+    this.taskService.tasks[status] = filteredTasks;
 
     this.taskService.updateDataBase();
   }

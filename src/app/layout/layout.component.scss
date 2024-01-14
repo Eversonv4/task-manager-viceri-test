@@ -1,5 +1,36 @@
 
-h1 {
-  text-align: center;
-  font-size: 24px;
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  a {
+    text-decoration: none;
+    color: #0c758a;
+    display: block;
+    font-weight: 500;
+    padding: 0 15px;
+    border: 1px solid #0c758a;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: #0c758a80;
+      color: #fff;
+    }
+  }
+
+  a.active {
+    color: white;
+    background-color: #ffc296;
+    border: 1px solid #ffc296;
+
+    &:hover {
+      background-color: #f0ae7e;
+    }
+  }
+
+  span {
+    margin: 0 15px;
+  }
 }
