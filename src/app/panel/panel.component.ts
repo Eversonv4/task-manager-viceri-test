@@ -1,7 +1,13 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TListPack, TaskService } from '../../services/task.service';
 import { TStatus } from '../../shared/types';
+
+type TSelectedTask = {
+  status: TStatus,
+  title: string
+  index: number
+}
 
 @Component({
   selector: 'app-panel',
@@ -15,6 +21,8 @@ export class PanelComponent implements OnInit {
     done: [],
     blocked: []
   }
+
+  selectedTask !: TSelectedTask;
 
   constructor(private taskService: TaskService) {
 
@@ -57,5 +65,34 @@ export class PanelComponent implements OnInit {
     this.taskService.tasks[status] = filteredTasks;
 
     this.taskService.updateDataBase();
+  }
+
+  openModal(modal: HTMLDivElement, updateInput: HTMLTextAreaElement, status: TStatus, index: number) {
+    modal.style.left = "0";
+    const title = this.taskService.tasks[status][index];
+    updateInput.value = title;
+    this.selectedTask = {
+      index,
+      status,
+      title,
+    }
+  }
+
+  updateTask(status: TStatus, index: number, updateTaskInput: HTMLTextAreaElement, modal: HTMLDivElement) {
+    if(updateTaskInput.value === "") {
+      return
+    }
+
+    this.taskService.tasks[status][index] = updateTaskInput.value;
+
+    modal.style.left = "100%";
+    updateTaskInput.value = "";
+
+    this.taskService.updateDataBase();
+  }
+
+  closeModal(modal: HTMLDivElement, HTMLTextAreaElement: HTMLTextAreaElement) {
+    modal.style.left = "100%";
+    HTMLTextAreaElement.value = "";
   }
 }

@@ -9,8 +9,13 @@ export class CardTaskComponent {
   @Input() title !: string;
   @Input() bgColor !: string;
   @Output() delete = new EventEmitter();
+  @Output() openModal = new EventEmitter();
 
   deleteTask() {
     this.delete.emit();
+  }
+
+  openUpdateTaskModal() {
+    this.openModal.emit();
   }
 }

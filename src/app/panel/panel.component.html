@@ -14,8 +14,13 @@
             [cdkDropListData]="tasks.backlog"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of tasks.backlog; track item; let i = $index) {
-              <app-card-task [title]="item" [bgColor]="'#eeeeee'" (delete)="deleteTask('backlog', i)"></app-card-task>
+            @for (task of tasks.backlog; track task; let i = $index) {
+              <app-card-task 
+                [title]="task" [bgColor]="'#eeeeee'" 
+                (delete)="deleteTask('backlog', i)"
+                (openModal)="openModal(modal, updateTaskInput, 'backlog', i)"
+                
+              ></app-card-task>
             }
           </div>
         </div>
@@ -29,8 +34,13 @@
             [cdkDropListData]="tasks.doing"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of tasks.doing; track item; let i = $index) {
-              <app-card-task [title]="item" [bgColor]="'#f8edc8'" (delete)="deleteTask('doing', i)"></app-card-task>
+            @for (task of tasks.doing; track task; let i = $index) {
+              <app-card-task
+                [title]="task" 
+                [bgColor]="'#f8edc8'" 
+                (delete)="deleteTask('doing', i)"
+                (openModal)="openModal(modal, updateTaskInput, 'doing', i)"
+              ></app-card-task>
             }
           </div>
         </div>
@@ -44,8 +54,13 @@
             [cdkDropListData]="tasks.done"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of tasks.done; track item; let i = $index) {
-              <app-card-task [title]="item" [bgColor]="'#c8f8cd'" (delete)="deleteTask('done', i)"></app-card-task>
+            @for (task of tasks.done; track task; let i = $index) {
+              <app-card-task 
+                [title]="task" 
+                [bgColor]="'#c8f8cd'" 
+                (delete)="deleteTask('done', i)"
+                (openModal)="openModal(modal, updateTaskInput, 'done', i)"
+              ></app-card-task>
             }
           </div>
         </div>
@@ -59,8 +74,13 @@
             [cdkDropListData]="tasks.blocked"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of tasks.blocked; track item; let i = $index) {
-              <app-card-task [title]="item" [bgColor]="'#f38b8a'" (delete)="deleteTask('blocked', i)"></app-card-task>
+            @for (task of tasks.blocked; track task; let i = $index) {
+              <app-card-task 
+                [title]="task" 
+                [bgColor]="'#f38b8a'" 
+                (delete)="deleteTask('blocked', i)"
+                (openModal)="openModal(modal, updateTaskInput, 'blocked', i)"
+              ></app-card-task>
             }
           </div>
         </div>
@@ -68,3 +88,15 @@
     </div>
   </div>
 </main>
+
+<div class="task-modal" style="left: 100%;" #modal>
+  <div class="modal-container">
+    <div class="content">
+      <span (click)="closeModal(modal, updateTaskInput)"><i class="fa fa-times" aria-hidden="true"></i></span>
+      <h3>Atualizar tarefa</h3>
+
+        <textarea type="text" #updateTaskInput></textarea>
+        <button (click)="updateTask(selectedTask.status, selectedTask.index, updateTaskInput, modal)">Atualizar</button>
+    </div>
+  </div>
+</div>

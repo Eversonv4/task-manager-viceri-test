@@ -1,5 +1,4 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Task } from '../app/model/task.model';
 
 export type TListPack = {
   backlog: string[],
@@ -45,15 +44,7 @@ export class TaskService implements OnInit {
   destroy() {}
 
   updateDataBase() {
-    // const tasks = {
-    //   backlog: this.backlog,
-    //   doing: this.doing,
-    //   done: this.done,
-    //   blocked: this.blocked
-    // }
-
     const tasksString = JSON.stringify(this.tasks)
-
     localStorage.setItem("tasks", tasksString)
   }
 }
