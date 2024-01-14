@@ -1,27 +1,59 @@
-# TaskManagerViceriTest
+<img src="https://raw.githubusercontent.com/Eversonv4/task-manager-viceri-test/main/src/assets/images/viceri.png" style="height: 100px; display: block; margin: 0 auto;" />
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
+<br />
 
-## Development server
+# Task Manager - Viceri
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project aims to put fundamental skills and knowledge in Angular into practice. Task information was saved in Local Storage. The project consists of two main pages: one with a panel with four columns, representing task statuses. We also have tasks in card format, where you can create a new task, edit it and move and drag a task to another column. The next page consists of a list of all tasks, where we can search for a specific task, filtering by status or searching by keywords
 
-## Code scaffolding
+Access the deployed project <a href="https://newtaskmanager.vercel.app/list">New Task Manager</a>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Design
 
-## Build
+For the application design, I chose a lighter look and with colors in lighter tones. The font applied is easy to read, which contributes positively to the accessibility and comprehensibility of the information provided.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies
 
-## Running unit tests
+In this project, it was possible to work with several relevant technologies on the market, such as:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular
+- Typescript
+- Angular Material UI
+- Bootstrap
+- SASS
+- HTML
+- Storage API
 
-## Running end-to-end tests
+## How to run this project
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Right from the start, you must have installed [NodeJS](https://nodejs.org/en) on your computer and the [Angular CLI](https://github.com/angular/angular-cli). As soon as you clone the project, open the terminal in the project folder and run the following command:
 
-## Further help
+```
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+After that, just run the command::
+
+```
+ng serve
+```
+
+Your application will be running. Do not close the terminal flap. Go to your preferred browser and type the following URL: 
+
+```
+http://localhost:4200/
+```
+
+
+## Preview - Main Panel
+
+On this main page, you are able to create new tasks, click and drag cards to any of the columns, and edit each card's information in your own way.
+
+<img src="https://raw.githubusercontent.com/Eversonv4/task-manager-viceri-test/main/preview/preview-panel.png" style="height: 500px;display:block;margin:0 auto;" />
+
+
+## Preview - Tasks List
+
+When you access the task list page, you will be able to access all tasks, search at will based on the task status or based on the description, or even part of it.
+
+<img src="https://raw.githubusercontent.com/Eversonv4/task-manager-viceri-test/main/preview/preview-list.png" style="height: 365px;display:block;margin:0 auto;" />
