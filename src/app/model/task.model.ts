@@ -2,7 +2,7 @@ type TStatus = "backlog" | "doing" | "blocked" | "done" ;
 
 export class Task {
   title: string = "";
-  status: TStatus = "backlog";
+  status !: TStatus;
   color: string = "";
 
   colorsOptions = {

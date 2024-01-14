@@ -1,0 +1,70 @@
+<main class="container-fluid animate-fadeIn">
+  <div class="create-task-container">
+    <input type="text" (keydown)="$event.key === 'Enter' && createNewTask($event)" />
+    <button>Adicionar Tarefa</button>
+  </div>
+  <div class="dragable-area" cdkDropListGroup>
+    <div class="row d-flex justify-content-center" style="gap: 15px;">
+      <section class="col-2 task-columns">
+        <div class="example-container">
+          <h3 class="column-title">À Fazer</h3>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="backlog"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            @for (item of backlog; track item) {
+              <div class="example-box" style="background-color: #eeeeee;" cdkDrag>{{item}}</div>
+            }
+          </div>
+        </div>
+      </section>
+      <section class="col-2 task-columns">
+        <div class="example-container">
+          <h3 class="column-title">Em andamento</h3>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="doing"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            @for (item of doing; track item) {
+              <div class="example-box" style="background-color: #f8edc8;" cdkDrag>{{item}}</div>
+            }
+          </div>
+        </div>
+      </section>
+      <section class="col-2 task-columns">
+        <div class="example-container">
+          <h3 class="column-title">Conluído</h3>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="done"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            @for (item of done; track item) {
+              <div class="example-box" style="background-color: #c8f8cd;" cdkDrag>{{item}}</div>
+            }
+          </div>
+        </div>
+      </section>
+      <section class="col-2 task-columns">
+        <div class="example-container">
+          <h3 class="column-title">Bloqueadas</h3>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="blocked"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            @for (item of blocked; track item) {
+              <div class="example-box" style="background-color: #f38b8a;" cdkDrag>{{item}}</div>
+            }
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
