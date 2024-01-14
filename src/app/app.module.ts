@@ -10,6 +10,7 @@ import { PanelComponent } from './panel/panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListContainerComponent } from './list-container/list-container.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { CardTaskComponent } from './card-task/card-task.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
     FooterComponent,
     LayoutComponent,
     PanelComponent,
-    ListContainerComponent
+    ListContainerComponent,
+    CardTaskComponent
   ],
   imports: [
     BrowserModule,

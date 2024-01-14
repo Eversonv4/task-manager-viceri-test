@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { TListPack, TaskService } from '../../services/task.service';
+import { TStatus } from '../../shared/types';
 
 @Component({
   selector: 'app-panel',
@@ -41,6 +42,20 @@ export class PanelComponent implements OnInit {
     if(event.value !== "") {
       const task = event.value;
       this.taskService.create(task)
+      event.value = "";
     }
+  }
+
+  deleteTask(status: TStatus, index: number) {
+    const confirmation = confirm("Tem certeza que deseja excluir esta tarefa?")
+
+    if(!confirmation) {
+      return;
+    }
+
+    const filteredTasks = this.taskService.tasks[status].filter((task, i) => index !== i);
+    this.taskService.tasks[status] = filteredTasks;
+
+    this.taskService.updateDataBase();
   }
 }

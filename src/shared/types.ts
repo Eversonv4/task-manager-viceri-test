@@ -1,0 +1,1 @@
+export type TStatus = "backlog" | "doing" | "blocked" | "done" ;

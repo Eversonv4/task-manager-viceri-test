@@ -1,0 +1,7 @@
+<div class="example-box flex-just-align-c card-container" [ngStyle]="{backgroundColor: bgColor}" cdkDrag>
+  <p class="mb-0" style="width: 100%; padding-right:15px;">{{title}}</p>
+  <div style="display: flex;justify-content: end;">
+    <button class="flex-just-align-c action-btn me-2"><i class="fa fa-pencil-square-o" style="margin-top:4px;" aria-hidden="true"></i></button>
+    <button class="flex-just-align-c action-btn" (click)="deleteTask()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+  </div>
+</div>

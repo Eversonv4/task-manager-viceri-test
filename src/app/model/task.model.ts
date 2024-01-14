@@ -1,4 +1,5 @@
-type TStatus = "backlog" | "doing" | "blocked" | "done" ;
+import { TStatus } from "../../shared/types";
+
 
 export class Task {
   title: string = "";
