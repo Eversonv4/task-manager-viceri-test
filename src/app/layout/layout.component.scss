@@ -20,7 +20,7 @@ nav {
     padding: 0 15px;
     border: 1px solid #0c758a;
     border-radius: 6px;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     &:hover {
       background-color: #0c758a80;
       color: #fff;
@@ -29,11 +29,11 @@ nav {
 
   a.active {
     color: white;
-    background-color: #ffc296;
-    border: 1px solid #ffc296;
+    background-color: #fba15f;
+    border: 1px solid #fba15f;
 
     &:hover {
-      background-color: #f0ae7e;
+      background-color: #ed7824;
     }
   }
 

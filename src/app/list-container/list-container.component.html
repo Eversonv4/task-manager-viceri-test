@@ -1,14 +1,45 @@
-<section class="container animate-fadeIn">
-  <div class="d-flex justify-content-center align-items-center">
-    <div>
-      <input type="text" name="filter" />
-      <button>Pesquisar</button>
+<section class="container animate-fadeIn list-section animate-scale-up">
+  <div class="">
+    <div class="input-search-container">
+      <input type="text" name="filter" #searchInput />
+      <button (click)="filterTasks(searchInput.value, selectInputStatus.value)">
+        Buscar <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
     </div>
-    <div>
+
+    <div class="filter-container">
       <label for="filter-status" class="form-label ms-2 mt-2 me-2">Filtrar por Status</label>
-      <select name="filterStatus" id="filter-status">
+      <select name="filterStatus" id="filter-status" #selectInputStatus (change)="mostrar()">
         <option *ngFor="let option of statusOptions" [value]="option?.status">{{option?.statusName}}</option>
       </select>
+      <button (click)="filterTasks(searchInput.value, selectInputStatus.value)">
+        Aplicar
+        <i class="fa fa-filter" aria-hidden="true"></i>
+      </button>
+      <button (click)="filterTasks('', '')" class="clear-filter-btn">
+        Limpar filtros
+        <i class="fa fa-filter" aria-hidden="true"></i>
+      </button>
     </div>
+  </div>
+
+  <div class="container">
+    <table class="table table-striped table-list">
+      <thead>
+        <tr>
+          <th scope="col">Descrição</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td class="column-description">
+            <span [ngStyle]="{backgroundColor: colors[task.status]}"></span>
+            {{task.description}}
+          </td>
+          <td>{{task.status}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

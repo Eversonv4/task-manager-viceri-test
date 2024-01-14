@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListContainerComponent } from './list-container/list-container.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { CardTaskComponent } from './card-task/card-task.component';
+import { ListItemComponent } from './list-container/list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardTaskComponent } from './card-task/card-task.component';
     LayoutComponent,
     PanelComponent,
     ListContainerComponent,
-    CardTaskComponent
+    CardTaskComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,
