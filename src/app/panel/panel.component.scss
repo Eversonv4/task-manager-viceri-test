@@ -42,9 +42,30 @@ main {
   background-color:#FFF;
   padding: 4px 8px;
   font-weight: 600;
+  width: 100%;
+  border-radius: 4px;
 }
 
+.panel-container {
+  gap: 15px; 
+  overflow: auto; 
+  width: 100%;
+  min-width: 912px;
 
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #dfdfdf;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 50px;
+  }
+}
 
 .task-columns {
   width: 23%;

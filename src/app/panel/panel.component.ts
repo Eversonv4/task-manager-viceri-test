@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { TListPack, TaskService } from '../../services/task.service';
-import { TStatus } from '../../shared/types';
+import { TaskService } from '../../services/task.service';
+import { TListPack, TStatus } from '../../shared/types';
 
 type TSelectedTask = {
   status: TStatus,

@@ -1,18 +1,14 @@
 import { Injectable, OnInit } from '@angular/core';
+import { TListPack } from '../shared/types';
 
-export type TListPack = {
-  backlog: string[],
-  doing: string[],
-  done: string[],
-  blocked: string[],
-}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService implements OnInit {
   tasks: TListPack = {
-    backlog: [],
+    backlog: ["Crie sua primeira tarefa 😀"],
     doing: [],
     done: [],
     blocked: [],
