@@ -1,7 +1,7 @@
 <main class="container-fluid animate-fadeIn">
   <div class="create-task-container">
-    <input type="text" (keydown)="$event.key === 'Enter' && createNewTask($event)" />
-    <button>Adicionar Tarefa</button>
+    <input type="text"  #createTaskInput />
+    <button (click)="createNewTask(createTaskInput)">Adicionar Tarefa</button>
   </div>
   <div class="dragable-area" cdkDropListGroup>
     <div class="row d-flex justify-content-center" style="gap: 15px;">
@@ -11,10 +11,10 @@
       
           <div
             cdkDropList
-            [cdkDropListData]="backlog"
+            [cdkDropListData]="tasks.backlog"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of backlog; track item) {
+            @for (item of tasks.backlog; track item) {
               <div class="example-box" style="background-color: #eeeeee;" cdkDrag>{{item}}</div>
             }
           </div>
@@ -26,10 +26,10 @@
       
           <div
             cdkDropList
-            [cdkDropListData]="doing"
+            [cdkDropListData]="tasks.doing"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of doing; track item) {
+            @for (item of tasks.doing; track item) {
               <div class="example-box" style="background-color: #f8edc8;" cdkDrag>{{item}}</div>
             }
           </div>
@@ -41,10 +41,10 @@
       
           <div
             cdkDropList
-            [cdkDropListData]="done"
+            [cdkDropListData]="tasks.done"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of done; track item) {
+            @for (item of tasks.done; track item) {
               <div class="example-box" style="background-color: #c8f8cd;" cdkDrag>{{item}}</div>
             }
           </div>
@@ -56,10 +56,10 @@
       
           <div
             cdkDropList
-            [cdkDropListData]="blocked"
+            [cdkDropListData]="tasks.blocked"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
-            @for (item of blocked; track item) {
+            @for (item of tasks.blocked; track item) {
               <div class="example-box" style="background-color: #f38b8a;" cdkDrag>{{item}}</div>
             }
           </div>

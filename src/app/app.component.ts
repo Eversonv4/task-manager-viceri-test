@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements  OnInit {
-  constructor() {}
+  constructor(private taskService: TaskService) {}
 
   ngOnInit() {
+    const tasks = localStorage.getItem("tasks");
+    if(tasks) {
+      const tasksJson = JSON.parse(tasks);
+      this.taskService.tasks = tasksJson;
+      return
+    }
+    const createNewDB = JSON.stringify(this.taskService.tasks);
+    localStorage.setItem("tasks", createNewDB)
   }
 }
