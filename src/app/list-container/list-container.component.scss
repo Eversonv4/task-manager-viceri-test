@@ -33,6 +33,15 @@
   }
 }
 
+@media(max-width: 992px) {
+  .input-search-container {
+    & input {
+      padding: 6px 12px;
+      max-width: 300px;
+    }
+  }
+}
+
 .filter-container {
   font-size: 14px;
   display: flex;
@@ -82,5 +91,87 @@
     border-radius: 50%;
     margin-right: 15px; 
     margin-left: 15px;
+  }
+}
+
+@media(max-width: 768px) {
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+
+    & button {
+      margin-top: 15px;
+    }
+  }
+
+  .clear-filter-btn {
+    margin-left: 0;
+  }
+}
+
+@media(max-width: 476px) {
+  .input-search-container {
+    & input {
+      padding: 4px 9px;
+    }
+
+    & button {
+      padding: 8px 7px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media(max-width: 442px) {
+  .input-search-container {
+    & input {
+      padding: 2px 9px;
+      font-size: 14px;
+      max-width: 230px;
+      width: 100%;
+    }
+
+    & button {
+      padding: 7px 7px;
+      border-radius: 8px;
+      font-size: 14px;
+      width: fit-content;
+    }
+  }
+}
+
+@media(max-width: 376px) {
+  .table-list {
+    min-width: 240px;
+    width: 100%;
+    overflow: auto;
+
+    & td {
+      font-size: 12px;
+    }
+
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #dfdfdf;
+      border-radius: 50px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #aaa;
+      border-radius: 50px;
+    }
+  }
+
+  .input-search-container {
+    flex-direction: column;
+
+    & button {
+      margin-top: 15px;
+    }
   }
 }

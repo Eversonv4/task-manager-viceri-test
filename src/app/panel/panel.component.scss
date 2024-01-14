@@ -37,6 +37,21 @@ main {
   }
 }
 
+@media(max-width: 400px) {
+  .create-task-container {
+    & input {
+      padding: 9px 15px;
+      max-width: 600px;
+      font-size: 14px;
+    }
+
+    & button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  }
+}
+
 .column-title {
   font-size: 16px;
   background-color:#FFF;
