@@ -50,3 +50,8 @@ h1 {
   transition: 0.4s ease-in-out;
 }
 
+@media(max-width: 400px) {
+  h2 {
+    font-size: 14px;
+  }
+}
