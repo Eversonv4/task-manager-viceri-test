@@ -26,15 +26,15 @@ figure {
   }
 }
 
+@media (max-width: 990px) {
+  h1 {
+    display: none;
+  }
+}
+
 @media (max-width: 500px) {
   header {
     min-width: 290px;
-  }
-
-  figure {
-    & img {
-      max-height: 50px;
-    }
   }
 
   .datetime-widget {
@@ -50,9 +50,3 @@ h1 {
   transition: 0.4s ease-in-out;
 }
 
-@media (max-width: 990px) {
-  h1 {
-    
-    display: none;
-  }
-}
