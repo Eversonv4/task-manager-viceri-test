@@ -8,18 +8,18 @@
       <section class="col-2 task-columns">
         <div class="example-container" >
           <h3 class="column-title">À Fazer</h3>
-      
+
           <div
             cdkDropList
             [cdkDropListData]="tasks.backlog"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
             @for (task of tasks.backlog; track task; let i = $index) {
-              <app-card-task 
-                [title]="task" [bgColor]="'#eeeeee'" 
+              <app-card-task
+                [title]="task" [bgColor]="'#eeeeee'"
                 (delete)="deleteTask('backlog', i)"
                 (openModal)="openModal(modal, updateTaskInput, 'backlog', i)"
-                
+
               ></app-card-task>
             }
           </div>
@@ -28,7 +28,7 @@
       <section class="col-2 task-columns">
         <div class="example-container">
           <h3 class="column-title">Em andamento</h3>
-      
+
           <div
             cdkDropList
             [cdkDropListData]="tasks.doing"
@@ -36,8 +36,8 @@
             (cdkDropListDropped)="drop($event)">
             @for (task of tasks.doing; track task; let i = $index) {
               <app-card-task
-                [title]="task" 
-                [bgColor]="'#f8edc8'" 
+                [title]="task"
+                [bgColor]="'#f8edc8'"
                 (delete)="deleteTask('doing', i)"
                 (openModal)="openModal(modal, updateTaskInput, 'doing', i)"
               ></app-card-task>
@@ -48,16 +48,16 @@
       <section class="col-2 task-columns">
         <div class="example-container">
           <h3 class="column-title">Conluído</h3>
-      
+
           <div
             cdkDropList
             [cdkDropListData]="tasks.done"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
             @for (task of tasks.done; track task; let i = $index) {
-              <app-card-task 
-                [title]="task" 
-                [bgColor]="'#c8f8cd'" 
+              <app-card-task
+                [title]="task"
+                [bgColor]="'#c8f8cd'"
                 (delete)="deleteTask('done', i)"
                 (openModal)="openModal(modal, updateTaskInput, 'done', i)"
               ></app-card-task>
@@ -68,16 +68,16 @@
       <section class="col-2 task-columns">
         <div class="example-container">
           <h3 class="column-title">Bloqueadas</h3>
-      
+
           <div
             cdkDropList
             [cdkDropListData]="tasks.blocked"
             class="example-list"
             (cdkDropListDropped)="drop($event)">
             @for (task of tasks.blocked; track task; let i = $index) {
-              <app-card-task 
-                [title]="task" 
-                [bgColor]="'#f38b8a'" 
+              <app-card-task
+                [title]="task"
+                [bgColor]="'#f38b8a'"
                 (delete)="deleteTask('blocked', i)"
                 (openModal)="openModal(modal, updateTaskInput, 'blocked', i)"
               ></app-card-task>

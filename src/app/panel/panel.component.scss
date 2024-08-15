@@ -62,8 +62,8 @@ main {
 }
 
 .panel-container {
-  gap: 15px; 
-  overflow: auto; 
+  gap: 15px;
+  overflow: auto;
   width: 100%;
   min-width: 912px;
 
@@ -151,12 +151,12 @@ main {
     & textarea {
       padding: 9px 15px;
       outline: none;
-      min-height: 35px;
+      min-height: 100px;
       max-width: 600px;
       width: 100%;
       border-radius: 6px;
       border: 1px solid #ccc;
-      font-size: 18px;
+      font-size: 14px;
     }
 
     & button {
@@ -167,7 +167,7 @@ main {
       border: none;
       background-color: #508ac8;
       color: #fff;
-  
+
       &:hover {
         background-color: #0c758a;
       }
@@ -187,21 +187,21 @@ main {
         padding: 3px 8px;
         font-size: 16px;
       }
-  
+
       & h3 {
         margin-bottom: 20px;
         font-size: 16px;
       }
-  
+
       & textarea {
         padding: 4px 8px;
         font-size: 14px;
       }
-  
+
       & button {
         padding: 5px 10px;
         font-size: 14px;
-      }  
+      }
     }
   }
 }
