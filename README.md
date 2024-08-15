@@ -6,7 +6,7 @@
 
 This project aims to put fundamental skills and knowledge in Angular into practice. Task information was saved in Local Storage. The project consists of two main pages: one with a panel with four columns, representing task statuses. We also have tasks in card format, where you can create a new task, edit it and move and drag a task to another column. The next page consists of a list of all tasks, where we can search for a specific task, filtering by status or searching by keywords
 
-Access the deployed project <a href="https://newtaskmanager.vercel.app/list">New Task Manager</a>
+Access the deployed project on: <a href="https://newtaskmanager.vercel.app/">New Task Manager</a>
 
 ## Design
 
