@@ -1,6 +1,6 @@
 <main class="container-fluid animate-fadeIn animate-scale-up">
   <div class="create-task-container">
-    <input type="text"  #createTaskInput placeholder="Escreva sua tarefa..." />
+    <input type="text"  #createTaskInput placeholder="Escreva sua tarefa..." (keyup.enter)="createNewTask(createTaskInput)" />
     <button (click)="createNewTask(createTaskInput)">Adicionar Tarefa</button>
   </div>
   <div class="dragable-area" cdkDropListGroup>
