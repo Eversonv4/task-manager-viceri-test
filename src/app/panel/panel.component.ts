@@ -27,9 +27,9 @@ export class PanelComponent implements OnInit {
     blocked: []
   }
   statuses :TStatuses = [
-    {status: "backlog", title: "À Fazer"}, 
-    {status: "doing", title: "Em andamento"}, 
-    {status: "done", title: "Concluída"}, 
+    {status: "backlog", title: "À Fazer"},
+    {status: "doing", title: "Em andamento"},
+    {status: "done", title: "Concluída"},
     {status: "blocked", title: "Bloqueada"}
   ];
 
@@ -39,10 +39,12 @@ export class PanelComponent implements OnInit {
     title: ""
   };
 
+  showModal: boolean = false;
+
   constructor(private taskService: TaskService) {
 
   }
-  
+
   ngOnInit(): void {
     this.tasks = this.taskService.tasks
   }
@@ -83,6 +85,8 @@ export class PanelComponent implements OnInit {
   }
 
   openModal(modal: HTMLDivElement, updateTextarea: HTMLTextAreaElement, status: TStatus, index: number) {
+    this.showModal = true;
+
     modal.style.left = "0";
     const title = this.taskService.tasks[status][index];
     updateTextarea.value = title;
@@ -93,10 +97,12 @@ export class PanelComponent implements OnInit {
     }
   }
 
-  updateTask(updateTaskTextArea: HTMLTextAreaElement, modal: HTMLDivElement, newStatus: string) {
+  updateTask(updateTaskTextArea: HTMLTextAreaElement, modal: HTMLDivElement, selectInput: HTMLSelectElement) {
     if(updateTaskTextArea.value === "") {
       return
     }
+
+    const newStatus = selectInput.value;
 
     if(newStatus !== this.selectedTask.status) {
       // @ts-ignore
@@ -107,9 +113,7 @@ export class PanelComponent implements OnInit {
       this.taskService.tasks[this.selectedTask.status][this.selectedTask.index] = updateTaskTextArea.value;
     }
 
-    modal.style.left = "100%";
-    updateTaskTextArea.value = "";
-
+    this.closeModal(updateTaskTextArea, modal);
     this.taskService.updateDataBase();
   }
 
@@ -120,8 +124,10 @@ export class PanelComponent implements OnInit {
     this.taskService.updateDataBase();
   }
 
-  closeModal(modal: HTMLDivElement, HTMLTextAreaElement: HTMLTextAreaElement) {
+  closeModal(updateTaskTextArea: HTMLTextAreaElement, modal: HTMLDivElement) {
     modal.style.left = "100%";
-    HTMLTextAreaElement.value = "";
+    updateTaskTextArea.value = "";
+
+    this.showModal = false;
   }
 }
