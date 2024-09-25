@@ -9,7 +9,7 @@ type TIteratableTasks = {description: string, status: string}[]
   templateUrl: './list-container.component.html',
   styleUrl: './list-container.component.scss'
 })
-export class ListContainerComponent { 
+export class ListContainerComponent {
   allTasks :TIteratableTasks = [];
   tasks :TIteratableTasks = [];
   searchText :string = "";
@@ -59,15 +59,16 @@ export class ListContainerComponent {
   filterTasks(titleSearch: string, selectedStatus: string) {
     if(titleSearch === "" && selectedStatus === "") {
       this.tasks = this.allTasks;
-      return 
+      return
     }
 
     const tasks = this.allTasks.slice();
-    const tasksFilteredByText = tasks.filter(task => task.description.includes(titleSearch))
+    // const tasksFilteredByText = tasks.filter(task => task.description.includes(titleSearch))
+    const tasksFilteredByText = tasks.filter(task => task.description.toLowerCase().includes(titleSearch.toLowerCase()))
 
     if(selectedStatus === "") {
       this.tasks = tasksFilteredByText
-      return 
+      return
     }
 
     const tasksfilteredByStatus = tasks.filter(task => task.status === selectedStatus)
