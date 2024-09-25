@@ -56,9 +56,14 @@ export class ListContainerComponent {
     this.allTasks = filteredTasks;
   }
 
-  filterTasks(titleSearch: string, selectedStatus: string) {
+  filterTasks(titleSearch: string, selectedStatus: string, statusSelectInput?: HTMLSelectElement) {
     if(titleSearch === "" && selectedStatus === "") {
       this.tasks = this.allTasks;
+
+      if(statusSelectInput) {
+        statusSelectInput.value = "";
+      }
+
       return
     }
 
